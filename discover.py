@@ -68,10 +68,10 @@ def check_range(start_num, end_num):
 
             try:
                 text = fetch(url)
-                text = fetch(url1)
-                text = fetch(url2)
-                text = fetch(url3)
-                text = fetch(url4)
+                text1 = fetch1(url1)
+                text2 = fetch2(url2)
+                text3 = fetch3(url3)
+                text4 = fetch4(url4)
             except FetchError:
                 # The server may be overloaded so wait a bit
                 print('Sleeping... If you see this')
@@ -87,7 +87,46 @@ def check_range(start_num, end_num):
 
                     for tag in extract_tags(text):
                         yield 'tag:{0}'.format(tag)
+                elif text1:
+                    yield 'id:{0}'.format(shortcode)
 
+                    username = extract_handle(text1)
+
+                    if username:
+                        yield 'user:{0}'.format(username)
+
+                    for tag in extract_tags(text1):
+                        yield 'tag:{0}'.format(tag)
+                elif text2:
+                    yield 'id:{0}'.format(shortcode)
+
+                    username = extract_handle(text2)
+
+                    if username:
+                        yield 'user:{0}'.format(username)
+
+                    for tag in extract_tags(text2):
+                        yield 'tag:{0}'.format(tag)
+                elif text3:
+                    yield 'id:{0}'.format(shortcode)
+
+                    username = extract_handle(text3)
+
+                    if username:
+                        yield 'user:{0}'.format(username)
+
+                    for tag in extract_tags(text3):
+                        yield 'tag:{0}'.format(tag)
+                elif text4:
+                    yield 'id:{0}'.format(shortcode)
+
+                    username = extract_handle(text4)
+
+                    if username:
+                        yield 'user:{0}'.format(username)
+
+                    for tag in extract_tags(text4):
+                        yield 'tag:{0}'.format(tag)
                 break  # stop the while loop
 
             counter += 1
