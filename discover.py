@@ -46,9 +46,7 @@ def main():
 
 
 def check_range(start_num, end_num):
-    '''Check if picture exists.
-
-    This is a generator which yields the valid shortcodes and usernames.
+    '''Check if page exists.
 
     Each line is like short:12345 or user:bookloving101
     '''
@@ -136,8 +134,8 @@ def extract_handle(text):
 
 def extract_tags(text):
     '''Return a list of tags from the text.'''
-    # Search for <a href="/tag/asdf">
-    return re.findall(r'"/tag/([^"]+)"', text)
+    # Search for href="/tags/romance"
+    return re.findall(r'"/tags/([^"]+)"', text)
 
 if __name__ == '__main__':
     main()
