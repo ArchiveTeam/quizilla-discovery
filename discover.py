@@ -68,10 +68,10 @@ def check_range(start_num, end_num):
 
             try:
                 text = fetch(url)
-                text1 = fetch1(url1)
-                text2 = fetch2(url2)
-                text3 = fetch3(url3)
-                text4 = fetch4(url4)
+                text1 = fetch(url1)
+                text2 = fetch(url2)
+                text3 = fetch(url3)
+                text4 = fetch(url4)
             except FetchError:
                 # The server may be overloaded so wait a bit
                 print('Sleeping... If you see this')
