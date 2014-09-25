@@ -55,8 +55,7 @@ class CheckIP(SimpleTask):
             item.log_output('Checking IP address.')
             result = socket.gethostbyname('quizilla.teennick.com')
 
-            if not (result.startswith('96.127.160.') or
-                    result.startswith('173.236.110.')):
+            if not (result.startswith('23.15.9.')):
                 item.log_output('Got IP address: {0}'.format(result))
                 item.log_output(
                     'Are you behind a firewall/proxy? That is a big no-no!')
