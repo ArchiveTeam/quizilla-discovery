@@ -53,10 +53,17 @@ class CheckIP(SimpleTask):
 
         if self._counter <= 0:
             item.log_output('Checking IP address.')
-            result = socket.gethostbyname('quizilla.teennick.com')
+            ip_set = set()
 
-            if not (result.startswith('23.15.9.')):
-                item.log_output('Got IP address: {0}'.format(result))
+            ip_set.add(socket.gethostbyname('twitter.com'))
+            ip_set.add(socket.gethostbyname('facebook.com'))
+            ip_set.add(socket.gethostbyname('youtube.com'))
+            ip_set.add(socket.gethostbyname('microsoft.com'))
+            ip_set.add(socket.gethostbyname('icanhas.cheezburger.com'))
+            ip_set.add(socket.gethostbyname('archiveteam.org'))
+
+            if len(ip_set) != 6:
+                item.log_output('Got IP addresses: {0}'.format(ip_set))
                 item.log_output(
                     'Are you behind a firewall/proxy? That is a big no-no!')
                 raise Exception(
